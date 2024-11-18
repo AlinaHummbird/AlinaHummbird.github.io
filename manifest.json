@@ -2,15 +2,15 @@
   "name": "SELF MADE",
   "short_name": "SELF MADE",
   "description": "Приложение SELF MADE — всё для вашего роста, успеха и реализации самых смелых целей!",
-  "start_url": "https://hmgbrd.ru",
-  "scope": "https://hmgbrd.ru",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "https://manifest.hmgbrd.ru/icon-180x180.png",
-      "sizes": "180x180",
+      "src": "https://hmgbrd.ru/icon-192x192.png",
+      "sizes": "192x192",
       "type": "image/png"
     }
   ]
