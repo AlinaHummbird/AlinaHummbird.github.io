@@ -14,3 +14,5 @@ if ('serviceWorker' in navigator) {
 } else {
   console.log('Ваш браузер не поддерживает Service Worker');
 }
+<script src="script.js"></script> <!-- Подключение файла с регистрацией SW -->
+</body>
