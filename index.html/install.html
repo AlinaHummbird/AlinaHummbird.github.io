@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Установка PWA</title>
 
-    <!-- Встроенные стили -->
+    <!-- Подключаем манифест и сервис-воркер -->
+    <link rel="manifest" href="/index.html/manifest.json">
     <style>
         #installPWA {
             display: none; /* Изначально скрыта */
@@ -24,14 +25,12 @@
     </style>
 </head>
 <body>
-    <!-- Шапка страницы -->
     <header>
         <h1>Установить приложение</h1>
         <p>Нажмите кнопку ниже, чтобы установить наше приложение на экран.</p>
         <button id="installPWA">Добавить на экран</button>
     </header>
 
-    <!-- Скрипт для отображения кнопки установки PWA -->
     <script>
         let deferredPrompt;
         const installButton = document.getElementById('installPWA');
