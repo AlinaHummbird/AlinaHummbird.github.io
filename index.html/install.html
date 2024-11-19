@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Установка PWA</title>
 
-    <!-- Подключаем манифест и сервис-воркер -->
-    <link rel="manifest" href="/index.html/manifest.json"> 
-  <style>
+    <!-- Подключаем манифест -->
+    <link rel="manifest" href="/manifest.json"> 
+
+    <style>
         #installPWA {
             display: none;
             padding: 12px 24px;
@@ -25,35 +26,36 @@
         }
     </style>
 </head>
-    <script>
-    let deferredPrompt;
-    const installButton = document.getElementById('installPWA');
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();  // Предотвращаем появление стандартного окна установки
-        deferredPrompt = e;  // Сохраняем событие для использования позже
-        installButton.style.display = 'block';  // Показываем кнопку
-    });
-
-    installButton.addEventListener('click', () => {
-        if (deferredPrompt) {
-            deferredPrompt.prompt();  // Показываем стандартный диалог установки
-            deferredPrompt.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === 'accepted') {
-                    console.log('Пользователь добавил PWA на экран');
-                } else {
-                    console.log('Пользователь отклонил установку');
-                }
-                deferredPrompt = null;  // Сбрасываем событие
-            });
-        }
-    });
-</script>
 <body>
     <header>
         <h1>Установить приложение</h1>
         <p>Нажмите кнопку ниже, чтобы установить наше приложение на экран.</p>
         <button id="installPWA">Добавить на экран</button>
     </header>
+
+    <script>
+        let deferredPrompt;
+        const installButton = document.getElementById('installPWA');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();  // Предотвращаем появление стандартного окна установки
+            deferredPrompt = e;  // Сохраняем событие для использования позже
+            installButton.style.display = 'block';  // Показываем кнопку
+        });
+
+        installButton.addEventListener('click', () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();  // Показываем стандартный диалог установки
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('Пользователь добавил PWA на экран');
+                    } else {
+                        console.log('Пользователь отклонил установку');
+                    }
+                    deferredPrompt = null;  // Сбрасываем событие
+                });
+            }
+        });
+    </script>
 </body>
 </html>
